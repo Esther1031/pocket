@@ -1,0 +1,50 @@
+<!--1~6까지 ECMAScript 3 씀 -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>getData Form Test</title>
+<script type="text/javascript">
+	alert("자바스크립트 블럭 시작 >>> :");
+	
+	function checkAction(){
+		alert("checkAction함수 블럭 시작 >>> :");
+		// 콘솔에 찍음
+		console.log("checkAction 함수 블럭 시작 >>> :");
+		//Dom 객체 찾기 (id 속성값을 찾을 때)
+		alert(window.document.getElementById("getDataForm_id"));
+		// 태그 이름으로 Dom 객체 찾을 때
+		alert(window.document.getDataForm_name);
+		
+		alert(window.document.getElementsByTagName("input"));
+		alert(window.document.getElementsByTagName("input")[0]);
+		alert(window.document.getElementsByTagName("input")[1]);
+		
+		var a = document.getElementById("mname");
+		alert("a >>> : " + a); //alert(window.document.getElementsByTagName("input")[0]);
+		alert("a.value >>> : " + a.value);
+		
+		var b = document.getElementById("maddr");
+		alert("b >>> : " + b); //alert(window.document.getElementsByTagName("input")[1]);
+		alert("b.value >>> : " + b.value);
+		
+		var f = window.document.getElementById("getDataForm_id");
+		f.action="/testWeb/jsp/getData.jsp";
+		f.method="GET"; //이건 꼭 대문자
+		f.enctype="application/x-www-form-urlencoded";
+		f.submit();
+	}
+</script>
+</head>
+<body>
+<form id="getDataForm_id" name="getDataForm_name">
+이름 : <input type="text" id="mname" name="mname"><br>
+주소 : <input type="text" id="maddr" name="maddr"><br>
+<!-- 
+<input type="submit" value="보내기>
+-->
+<input type="button" value="보내기" style="Color:red" onclick="checkAction()">
+<input type="reset" value="다시" style="Color:blue">
+</form>
+</body>
+</html>
